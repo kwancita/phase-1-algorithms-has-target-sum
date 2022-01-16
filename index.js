@@ -1,5 +1,28 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  // var sum = []
+  // for(let i=0; i < array.length; i++){
+  //   for(let j = i+1; j < array.length; j++){
+  //     if (target === array[i]+array[j]){
+  //       sum.push([array[i],array[j]])
+  //     }
+  //   }
+  // }
+  // if (sum.length === 2){
+  //   return true
+  // }else{
+  //   return false
+  // }
+  const seenNumbers = {};
+
+  for (const number of array) {
+    // n steps
+    const complement = target - number;
+    if (complement in seenNumbers) return true;
+    seenNumbers[number] = true;
+  }
+
+  return false;
 }
 
 /* 
@@ -8,6 +31,7 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+
 */
 
 /*
